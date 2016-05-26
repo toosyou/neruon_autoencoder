@@ -6,4 +6,6 @@
 
 int main(void){
 	Brain sample(NDB_PATH);
+
+	return 0;
 }
