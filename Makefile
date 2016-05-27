@@ -1,8 +1,10 @@
 CXX = g++-5
-CXXFLAGS = -IFlyLIB/ -LFlyLIB/lib/ -lFly
+FLYLIB_FLAGS = -IFlyLIB/ -LFlyLIB/lib/ -lFly
+PROGRESSBAR_FLAGS = -LFlyLIB/progressbar/ -lprogressbar -lncurses
+CXXFLAGS = $(FLYLIB_FLAGS) $(PROGRESSBAR_FLAGS)
 
-all: vertex_interpolation.cpp FlyLIB/lib/
+all: vertex_interpolation.cpp FlyLIB/lib/libFly.a
 	$(CXX) $(CXXFLAGS) vertex_interpolation.cpp -o vertex_interpolation
 
-FlyLIB/lib:
+FlyLIB/lib/libFly.a:
 	make -C FlyLIB
